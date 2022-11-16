@@ -28,17 +28,20 @@ function Paginator:init()
     self.forward = self.page:newAction(8):title("Forward")
 
     function self.back.leftClick()
-        self.index = self.index - 1
+        self.index = math.max(self.index - 1, 1)
         self:update()
     end
 
     function self.forward.leftClick()
-        self.index = self.index + 1
+        self.index = math.min(self.index + 1, math.ceil(#self.data / 6))
         self:update()
     end
 end
 
 function Paginator:update()
+    -- length of self.data can change
+    self.index = math.min(self.index, math.ceil(#self.data / 6))
+
     for i = 1, 6 do
         local paginatedDataIndex = self.data[i + (self.index - 1) * 6]
         local action = self.slots[i]
