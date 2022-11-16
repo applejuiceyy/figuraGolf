@@ -1,3 +1,5 @@
+-- Author: Applejuice
+
 return function (name)
     local obj = setmetatable({}, {})
     obj.__index = obj

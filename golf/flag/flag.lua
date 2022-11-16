@@ -1,3 +1,5 @@
+-- Author: Applejuice
+
 local class = require "golf/class"
 local collision = require "golf/collision"
 

@@ -1,3 +1,5 @@
+-- Author: Applejuice
+
 local class = require "golf/class"
 local Camera = require "golf/camera"
 local flagWinFireworks = require "golf/flag/flagWinFireworks"

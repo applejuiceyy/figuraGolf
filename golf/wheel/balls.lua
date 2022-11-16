@@ -1,3 +1,5 @@
+-- Author: Applejuice
+
 local Paginator = require("golf/wheel/paginator")
 
 local state = require("golf/state")

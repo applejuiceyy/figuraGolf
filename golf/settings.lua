@@ -1,3 +1,5 @@
+-- Author: Applejuice
+
 return {
     predictEntirePath = false,
     extraBouncy = false,

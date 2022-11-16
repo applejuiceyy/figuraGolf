@@ -1,3 +1,5 @@
+-- Author: Applejuice
+
 local class = require("golf.class")
 
 local FlagModel = class("BallModel")

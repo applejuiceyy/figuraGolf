@@ -1,5 +1,5 @@
-local balls = require("golf/ball/main")
-local flags = require("golf/flag/main")
+-- Author: Applejuice
+
 local state = require("golf/state")
 
 

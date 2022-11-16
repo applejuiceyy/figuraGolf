@@ -1,3 +1,5 @@
+-- Author: Applejuice
+
 local ballPaginator = require("golf/wheel/balls")
 local flagsPaginator = require("golf/wheel/flags")
 local state = require("golf/state")

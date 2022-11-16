@@ -1,3 +1,5 @@
+-- Author: Applejuice (carried over from FiguraTanks project)
+
 function collidesWithRectangle(pos, that)
     --[[particles:addParticle("minecraft:dust 1 1 1 1", that.xyz)
     particles:addParticle("minecraft:dust 1 1 1 1", that.wyz)

@@ -1,3 +1,5 @@
+-- Author: Applejuice
+
 local class = require("golf.class")
 local Camera = require("golf/camera")
 local keybinds = require("golf/keybinds")
