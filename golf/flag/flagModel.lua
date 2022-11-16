@@ -69,6 +69,7 @@ function FlagModel:dispose()
     for i, v in ipairs(self.wools) do
         models.tasks:removeTask(v.id)
     end
+    models.tasks:removeTask(self.holeId)
 end
 
 return FlagModel
