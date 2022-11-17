@@ -1,6 +1,7 @@
 -- Author: Applejuice
 
 local class = require("golf.class")
+local pnoise= require("golf/flag/pnoise")
 
 local FlagModel = class("BallModel")
 
@@ -23,13 +24,15 @@ function FlagModel:init(flag)
     end
 
     for i = 1, 20 do
-        for j = 1, 5 do
+        for j = 1, #flagColors do
             local id = math.random()
             table.insert(self.wools, {id = id, w = i, h = j, part = models.tasks:addBlock(id):block("minecraft:" .. flagColors[j] .. "_concrete")})
         end
     end
 
     self.elevation = 0
+
+    self.offset = math.random() * 100
 end
 
 function FlagModel:render(delta)
@@ -46,19 +49,21 @@ function FlagModel:render(delta)
         v.part:pos((self.flag.pos + vec(-0.25, i + self.elevation - 1, -0.25)) * 16):scale(0.5, 1, 0.5)
     end
 
+    local orient = pnoise:noise(self.flag.pos.x / 100, self.flag.pos.y / 100, world.getTime(delta) / 500) * 720 / 2
     for i, v in ipairs(self.wools) do
-        local rotation = math.cos((v.w + world.getTime(delta)) / 4) * ((v.w + 16) / 6)
-        local nextrotation = math.cos((v.w + 1 + world.getTime(delta)) / 4) * ((v.w + 1 + 16) / 6)
+        local time = world.getTime(delta) + math.cos((v.h + world.getTime(delta) / 10) * 2) + self.offset
+        local cycle = math.cos((-v.w + time) / 2.5) + math.sin((-v.w + time) / 2.5 - math.pi / 2) * 10
+        local rotation = (math.cos(cycle / 5) - 0.5) * ((v.w + 16) / 5)
 
-        v.part:pos((self.flag.pos + vec(0, 4.6 + self.elevation, 0) + vectors.rotateAroundAxis(rotation, vec(v.w / 10, 0, 0), vec(0, 1, 0)) - vec(0.05, 4 / 16 / 2, 0.05)) * 16 + vec(0, v.h * 4, 0))
+        v.part:pos((self.flag.pos + vec(0, 4.6 + self.elevation, 0) + vectors.rotateAroundAxis(rotation + orient, vec(v.w / 10, 0, 0), vec(0, 1, 0)) - vec(0.05, 4 / 16 / 2, 0.05)) * 16 + vec(0, v.h * 4 - math.abs(rotation) / 5, 0))
         v.part:scale(0.1, 4 / 16, 0.1)
-        v.part:rot(0, (nextrotation - rotation) * 10, 0)
+        v.part:rot(0, 0, 0)
     end
 
     self.hole:pos((self.flag.pos + vec(-0.125, 0, -0.125) * self.elevation / 3) * 16):scale(vec(0.25, 0.01, 0.25) * self.elevation / 3)
 
     if self.elevation == 0 or math.random() > 0.9 then
-        particles["minecraft:totem_of_undying"]:pos(self.flag.pos + vec(math.random() - 0.5, 0, math.random() - 0.5)):gravity(-1 - math.random() / 2):lifetime(640):spawn()
+        -- particles["minecraft:totem_of_undying"]:pos(self.flag.pos + vec(math.random() - 0.5, 0, math.random() - 0.5)):gravity(-1 - math.random() / 2):lifetime(640):spawn()
     end
 end
 
