@@ -35,7 +35,7 @@ function BallController:adaptativeCamera()
                 local strength = (range + 1) - math.max(math.abs(x), math.abs(y), math.abs(z))
                 local state = world.getBlockState(ppos + p)
                 if not (state:isOpaque() or state:isFullCube()) then
-                    -- particles:addParticle("minecraft:dust 1 1 1 " .. strength, ppos + p)
+                    -- particles:newParticle("minecraft:dust 1 1 1 " .. strength, ppos + p)
                     average = average + (vec(x, y, z) / strength)
                 end
                 divisor = divisor + strength
@@ -230,7 +230,7 @@ function BallController:render(delta)
     end
     if self.controlsTimeout < 0 then
         for i = 1, #self.prediction - 1 do
-            particles:addParticle("minecraft:dust 1 0 0 0.3", math.lerp(self.prediction[i], self.prediction[i + 1], world.getTime(delta) % 10 / 10))
+            particles:newParticle("minecraft:dust 1 0 0 0.3", math.lerp(self.prediction[i], self.prediction[i + 1], world.getTime(delta) % 10 / 10))
         end
     end
     self:updateCameraPosition()

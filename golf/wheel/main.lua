@@ -4,7 +4,7 @@ local ballPaginator = require("golf/wheel/balls")
 local flagsPaginator = require("golf/wheel/flags")
 local state = require("golf/state")
 
-local page = action_wheel:createPage()
+local page = action_wheel:newPage()
 
 page:newAction():title("Balls"):item("white_wool"):onLeftClick(function() ballPaginator:show() end)
 page:newAction():title("Poles"):item("oak_fence"):onLeftClick(function() flagsPaginator:show() end)

@@ -6,7 +6,7 @@ local state = require("golf/state")
 
 
 local selectedBall = 0
-local ballpage = action_wheel:createPage()
+local ballpage = action_wheel:newPage()
 local ballPaginator = Paginator:new()
 
 ballpage:newAction():title("Focus"):item("arrow"):onLeftClick(function() state:focusBall(selectedBall) end)

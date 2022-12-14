@@ -35,7 +35,7 @@ function FlagWinFirework:tickAnimation()
     self.vel = self.vel + self.jerk
     self.pos = self.pos + self.vel
 
-    particles:addParticle("minecraft:firework", self.pos)
+    particles:newParticle("minecraft:firework", self.pos)
 
     if self.ticks > 100 then
         local color = vec(math.random() > 0.5 and 1 or 0, math.random() > 0.5 and 1 or 0, math.random() > 0.5 and 1 or 0)

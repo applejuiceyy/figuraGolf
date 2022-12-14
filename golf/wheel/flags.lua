@@ -6,7 +6,7 @@ local state = require("golf/state")
 
 
 local selectedPole = 0
-local polepage = action_wheel:createPage()
+local polepage = action_wheel:newPage()
 local polePaginator = Paginator:new()
 
 polepage:newAction():title("Delete"):item("barrier"):onLeftClick(function()

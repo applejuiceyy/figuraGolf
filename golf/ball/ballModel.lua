@@ -12,7 +12,7 @@ function BallModel:init(ball, model)
 
     self.ballTaskId = math.random()
     self.ballScale = vec(2 / 16, 2 / 16, 2 / 16)
-    self.ballTask = models.tasks:addBlock(self.ballTaskId):block("white_wool")
+    self.ballTask = models.tasks:newBlock(self.ballTaskId):block("white_wool")
 
     self.ball.hit:register(function(pos, vel, block)
         for i = 1, math.pow(self.ball.vel:length(), 2) do

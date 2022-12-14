@@ -1,14 +1,14 @@
 -- Author: Applejuice (carried over from FiguraTanks project)
 
 function collidesWithRectangle(pos, that)
-    --[[particles:addParticle("minecraft:dust 1 1 1 1", that.xyz)
-    particles:addParticle("minecraft:dust 1 1 1 1", that.wyz)
-    particles:addParticle("minecraft:dust 1 1 1 1", that.xtz)
-    particles:addParticle("minecraft:dust 1 1 1 1", that.wtz)
-    particles:addParticle("minecraft:dust 1 1 1 1", that.xyh)
-    particles:addParticle("minecraft:dust 1 1 1 1", that.wyh)
-    particles:addParticle("minecraft:dust 1 1 1 1", that.xth)
-    particles:addParticle("minecraft:dust 1 1 1 1", that.wth)
+    --[[particles:newParticle("minecraft:dust 1 1 1 1", that.xyz)
+    particles:newParticle("minecraft:dust 1 1 1 1", that.wyz)
+    particles:newParticle("minecraft:dust 1 1 1 1", that.xtz)
+    particles:newParticle("minecraft:dust 1 1 1 1", that.wtz)
+    particles:newParticle("minecraft:dust 1 1 1 1", that.xyh)
+    particles:newParticle("minecraft:dust 1 1 1 1", that.wyh)
+    particles:newParticle("minecraft:dust 1 1 1 1", that.xth)
+    particles:newParticle("minecraft:dust 1 1 1 1", that.wth)
 ]]
 
     return pos.w > that.x and pos.t > that.y and pos.h > that.z

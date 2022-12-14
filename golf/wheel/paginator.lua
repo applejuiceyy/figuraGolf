@@ -17,7 +17,7 @@ function reset(action)
 end
 
 function Paginator:init()
-    self.page = action_wheel:createPage()
+    self.page = action_wheel:newPage()
     self.index = 1
     self.data = {}
     self.slots = {}

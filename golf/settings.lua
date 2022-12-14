@@ -4,7 +4,7 @@ return {
     predictEntirePath = false,
     extraBouncy = false,
     extraSlippery = false,
-    winningCutscene = true,
+    winningCutscene = false,
     winningFireworks = true,
     maxforce = 5
 }

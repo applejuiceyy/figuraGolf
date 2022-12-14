@@ -16,17 +16,17 @@ function FlagModel:init(flag)
     self.fences = {}
     self.wools = {}
     self.holeId = math.random()
-    self.hole = models.tasks:addBlock(self.holeId):block("minecraft:black_concrete")
+    self.hole = models.tasks:newBlock(self.holeId):block("minecraft:black_concrete")
 
     for i = 1, 6 do
         local id = math.random()
-        table.insert(self.fences, {id = id, part = models.tasks:addBlock(id):block("minecraft:oak_fence")})
+        table.insert(self.fences, {id = id, part = models.tasks:newBlock(id):block("minecraft:oak_fence")})
     end
 
     for i = 1, 20 do
         for j = 1, #flagColors do
             local id = math.random()
-            table.insert(self.wools, {id = id, w = i, h = j, part = models.tasks:addBlock(id):block("minecraft:" .. flagColors[j] .. "_concrete")})
+            table.insert(self.wools, {id = id, w = i, h = j, part = models.tasks:newBlock(id):block("minecraft:" .. flagColors[j] .. "_concrete")})
         end
     end
 
